@@ -14,31 +14,31 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-family: 'Pacifico', cursive;
+      color: #d6336c;
+      margin: 0.5em 0;
     }
 
     h1 {
-      font-family: 'Pacifico', cursive;
       font-size: 2.5em;
-      color: #d6336c;
-      text-align: center;
-      margin-bottom: 0.5em;
     }
 
     h2 {
-      font-family: 'Pacifico', cursive;
       font-size: 1.8em;
-      color: #d6336c;
-      text-align: center;
-      margin-top: 0;
     }
 
     .buttons {
       margin-top: 2em;
       display: flex;
       gap: 20px;
+      justify-content: center;
     }
 
     button {
@@ -64,23 +64,83 @@
       transform: scale(1.05);
     }
 
-    .flowers {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background-image: url('https://www.transparenttextures.com/patterns/flowers.png');
-      opacity: 0.2;
+    #yesMessage {
+      display: none;
+      margin-top: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #yesMessage h2 {
+      font-size: 1.6em;
+      color: #d6336c;
+    }
+
+    #yesMessage p {
+      font-size: 1.1em;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    #envelopeContainer img {
+      width: 120px;
+      cursor: pointer;
+      margin-top: 60px;
+    }
+
+    #envelopeContainer p {
+      font-family: 'Pacifico', cursive;
+      color: #d6336c;
+      font-size: 1.2em;
+    }
+
+    #proposalContent {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="flowers"></div>
-  <h1>Maria Jahaira del Carmen González Montenegro.</h1>
-  <h2>Do you want to be my girlfriend?</h2>
-  <div class="buttons">
-    <button class="yes">Yes 💕</button>
-    <button class="think">Let me think 🤔</button>
+
+  <!-- Envelope Intro -->
+  <div id="envelopeContainer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Envelope_icon.svg/1200px-Envelope_icon.svg.png" alt="Love Letter" onclick="openLetter()" />
+    <p>Click the envelope to open your letter 💌</p>
   </div>
+
+  <!-- Proposal Content -->
+  <div id="proposalContent">
+    <h1>Maria Jahaira del Carmen González Montenegro.</h1>
+    <h2>Do you want to be my girlfriend?</h2>
+
+    <div class="buttons">
+      <button class="yes">Yes 💕</button>
+      <button class="think">Let me think 🤔</button>
+    </div>
+
+    <!-- Message on Yes -->
+    <div id="yesMessage">
+      <h2>You just made my heart bloom 🌸</h2>
+      <p>
+        Maria Jahaira, from the moment I met you, I knew there was something extraordinary about you.  
+        Your smile lights up my world, your kindness inspires me, and your presence makes everything feel right.  
+        Thank you for saying yes — I promise to cherish you, laugh with you, and walk beside you through every season of life.  
+        This is the beginning of something beautiful, and I’m so lucky it’s with you 💖
+      </p>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function openLetter() {
+      document.getElementById('envelopeContainer').style.display = 'none';
+      document.getElementById('proposalContent').style.display = 'block';
+    }
+
+    document.querySelector('.yes').addEventListener('click', function() {
+      document.getElementById('yesMessage').style.display = 'block';
+    });
+  </script>
+
 </body>
 </html>
