@@ -14,8 +14,8 @@
       overflow: hidden;
     }
 
-    /* Kirby intro screen */
-    #kirbyScreen {
+    /* Heart intro screen */
+    #heartScreen {
       position: fixed;
       top: 0;
       left: 0;
@@ -30,13 +30,13 @@
       transition: opacity 1s ease;
     }
 
-    #kirbyScreen img {
-      width: 220px;
+    #heartScreen img {
+      width: 180px;
       cursor: pointer;
       animation: pulse 2s infinite;
     }
 
-    #kirbyScreen p {
+    #heartScreen p {
       font-family: 'Pacifico', cursive;
       color: #d6336c;
       font-size: 1.5em;
@@ -145,10 +145,10 @@
 </head>
 <body>
 
-  <!-- Fullscreen Kirby Intro -->
-  <div id="kirbyScreen">
-    <img src="https://cdn-icons-png.flaticon.com/512/188/188987.png" alt="Cute Kirby" onclick="openLetter()" />
-    <p>Click the Kirby to open your letter 💌</p>
+  <!-- Fullscreen Heart Intro -->
+  <div id="heartScreen">
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Heart Icon" onclick="openLetter()" />
+    <p>Click the heart to open your letter 💌</p>
   </div>
 
   <!-- Proposal Content -->
@@ -176,10 +176,10 @@
   <!-- Script -->
   <script>
     function openLetter() {
-      const kirby = document.getElementById('kirbyScreen');
-      kirby.style.opacity = '0';
+      const heart = document.getElementById('heartScreen');
+      heart.style.opacity = '0';
       setTimeout(() => {
-        kirby.style.display = 'none';
+        heart.style.display = 'none';
         document.getElementById('proposalContent').style.display = 'block';
         launchHearts();
       }, 1000);
