@@ -14,8 +14,8 @@
       overflow: hidden;
     }
 
-    /* Envelope screen */
-    #envelopeScreen {
+    /* Kirby intro screen */
+    #kirbyScreen {
       position: fixed;
       top: 0;
       left: 0;
@@ -30,13 +30,13 @@
       transition: opacity 1s ease;
     }
 
-    #envelopeScreen img {
-      width: 180px;
+    #kirbyScreen img {
+      width: 200px;
       cursor: pointer;
       animation: pulse 2s infinite;
     }
 
-    #envelopeScreen p {
+    #kirbyScreen p {
       font-family: 'Pacifico', cursive;
       color: #d6336c;
       font-size: 1.5em;
@@ -122,5 +122,49 @@
 </head>
 <body>
 
-  <!-- Fullscreen Envelope -->
-  <div id="envelopeScreen">
+  <!-- Fullscreen Kirby Intro -->
+  <div id="kirbyScreen">
+    <img src="https://cdn-icons-png.flaticon.com/512/188/188987.png" alt="Cute Kirby" onclick="openLetter()" />
+    <p>Click the Kirby to open your letter 💌</p>
+  </div>
+
+  <!-- Proposal Content -->
+  <div id="proposalContent">
+    <h1>Maria Jahaira del Carmen González Montenegro.</h1>
+    <h2>Do you want to be my girlfriend?</h2>
+
+    <div class="buttons">
+      <button class="yes">Yes 💕</button>
+      <button class="think">Let me think 🤔</button>
+    </div>
+
+    <!-- Message on Yes -->
+    <div id="yesMessage">
+      <h2>You just made my heart bloom 🌸</h2>
+      <p>
+        Maria Jahaira, from the moment I met you, I knew there was something extraordinary about you.  
+        Your smile lights up my world, your kindness inspires me, and your presence makes everything feel right.  
+        Thank you for saying yes — I promise to cherish you, laugh with you, and walk beside you through every season of life.  
+        This is the beginning of something beautiful, and I’m so lucky it’s with you 💖
+      </p>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function openLetter() {
+      const kirby = document.getElementById('kirbyScreen');
+      kirby.style.opacity = '0';
+      setTimeout(() => {
+        kirby.style.display = 'none';
+        document.getElementById('proposalContent').style.display = 'block';
+      }, 1000);
+    }
+
+    document.querySelector('.yes').addEventListener('click', function() {
+      document.getElementById('yesMessage').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
