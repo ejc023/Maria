@@ -11,13 +11,47 @@
       padding: 0;
       font-family: 'Quicksand', sans-serif;
       background: linear-gradient(to bottom right, #ffe4e1, #ffc0cb);
+      overflow: hidden;
+    }
+
+    #envelopeScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #ffc0cb;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      overflow-x: hidden;
+      justify-content: center;
+      z-index: 10;
+      transition: opacity 1s ease;
+    }
+
+    #envelopeScreen img {
+      width: 200px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+
+    #envelopeScreen p {
+      font-family: 'Pacifico', cursive;
+      color: #d6336c;
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    #proposalContent {
+      display: none;
       text-align: center;
+      padding: 60px 20px;
     }
 
     h1, h2 {
@@ -82,28 +116,12 @@
       color: #444;
       line-height: 1.6;
     }
-
-    #envelopeContainer img {
-      width: 120px;
-      cursor: pointer;
-      margin-top: 60px;
-    }
-
-    #envelopeContainer p {
-      font-family: 'Pacifico', cursive;
-      color: #d6336c;
-      font-size: 1.2em;
-    }
-
-    #proposalContent {
-      display: none;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Envelope Intro -->
-  <div id="envelopeContainer">
+  <!-- Fullscreen Envelope -->
+  <div id="envelopeScreen">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Envelope_icon.svg/1200px-Envelope_icon.svg.png" alt="Love Letter" onclick="openLetter()" />
     <p>Click the envelope to open your letter 💌</p>
   </div>
@@ -133,8 +151,12 @@
   <!-- Script -->
   <script>
     function openLetter() {
-      document.getElementById('envelopeContainer').style.display = 'none';
-      document.getElementById('proposalContent').style.display = 'block';
+      const envelope = document.getElementById('envelopeScreen');
+      envelope.style.opacity = '0';
+      setTimeout(() => {
+        envelope.style.display = 'none';
+        document.getElementById('proposalContent').style.display = 'block';
+      }, 1000);
     }
 
     document.querySelector('.yes').addEventListener('click', function() {
